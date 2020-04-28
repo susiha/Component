@@ -1,0 +1,65 @@
+apply plugin: 'com.android.application'
+
+def config = rootProject.ext.androidConfig
+def androidIds = rootProject.ext.ids
+def depence = rootProject.ext.dependence
+def isRelease = rootProject.ext.isRelease
+
+
+android {
+    compileSdkVersion config.compileSdkVersion
+    defaultConfig {
+        applicationId androidIds.appId
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
+        versionCode config.versionCode
+        versionName config.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField('boolean',"isRelease",String.valueOf(isRelease))
+
+        javaCompileOptions{
+            annotationProcessorOptions {
+                arguments =[moduleName:project.getName(),packageNameForAPT:packageNameForAPT]
+            }
+        }
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+
+
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    depence.each{
+        k,v -> implementation v
+    }
+
+    if(isRelease){
+        implementation project(":order")
+        implementation project(":personal")
+    }
+
+    implementation project(":annotation")
+    annotationProcessor project(":complie")
+    implementation project(":commonlib")
+
+
+
+
+//
+//    implementation 'androidx.appcompat:appcompat:1.0.2'
+//    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+//    testImplementation 'junit:junit:4.12'
+//    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+//    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+}

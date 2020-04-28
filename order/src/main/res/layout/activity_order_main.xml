@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Order 首页"
+        android:textColor="#000000"
+        android:textSize="24dp"
+        android:id="@+id/order_desc"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="个人信息"
+        android:layout_below="@id/order_desc"
+        android:layout_alignParentLeft="true"
+        android:onClick="jumppersonal"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="首页"
+        android:layout_below="@id/order_desc"
+        android:layout_alignParentRight="true"
+        android:onClick="jumpMain"
+        />
+
+
+</RelativeLayout>

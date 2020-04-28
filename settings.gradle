@@ -1,0 +1,2 @@
+include ':app', ':personal', ':order', ':commonlib', ':annotation', ':complie', ':arouteapi'
+rootProject.name='Component'

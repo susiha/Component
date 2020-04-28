@@ -1,0 +1,24 @@
+ext{
+
+    isRelease = true
+    // 包名，用于存放APT生成的类文件
+    packageNameForAPT = "com.susiha.modular.apt"
+    androidConfig =[
+                compileSdkVersion:29,
+                minSdkVersion:15,
+                targetSdkVersion:29,
+                versionCode :1,
+                versionName :"1.0"
+    ]
+
+
+    ids = [
+            appId:"com.susiha.component",
+            personalId:"com.susiha.personal",
+            orderId:"com.susiha.order"
+    ]
+    dependence = [
+            appcompat:'androidx.appcompat:appcompat:1.0.2',
+            constraintlayout: 'androidx.constraintlayout:constraintlayout:1.1.3'
+    ]
+}
